@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.ayuvyaassignment.android.R
@@ -34,13 +35,21 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setUpViewModel()
+        setUpObserver()
         setUpToolbar()
         setUpStatusBar()
         setUpProductRecyclerview()
     }
 
+    private fun setUpObserver() {
+        viewModel.cartProductCount.observe(this, Observer { count ->
+            binding.toolBar.cartCount.text = count.toString()
+        })
+    }
+
     private fun setUpToolbar() {
         binding.toolBar.toolbarBackIcon.visibility = View.GONE
+        binding.toolBar.cartCount.visibility = View.VISIBLE
         binding.toolBar.toolbarTitle.text = getString(R.string.ayuvya)
         binding.toolBar.toolbarIconMore.setOnClickListener {
             startActivity(Intent(this, CartActivity::class.java))
@@ -80,6 +89,7 @@ class MainActivity : AppCompatActivity() {
                     )
                     viewModel.insertToCart(cart)
                 }
+
                 override fun updateQuantity(productId: Int, newQuantity: Int) {
                     viewModel.updateCartQuantity(productId, newQuantity)
                 }

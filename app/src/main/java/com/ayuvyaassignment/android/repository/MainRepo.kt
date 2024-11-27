@@ -1,5 +1,6 @@
 package com.ayuvyaassignment.android.repository
 
+import androidx.lifecycle.LiveData
 import com.ayuvyaassignment.android.model.Product
 import com.ayuvyaassignment.android.roomDb.CartDao
 import com.ayuvyaassignment.android.roomDb.CartData
@@ -9,6 +10,8 @@ class MainRepo(private val cartDao: CartDao) {
     suspend fun addToCart(cartData: CartData) = cartDao.insert(cartData)
 
     suspend fun removeFromCart(cartData: CartData) = cartDao.delete(cartData)
+
+    fun getDistinctProductCount() : LiveData<Int> = cartDao.getDistinctProductCount()
 
     suspend fun updateCartItemQuantity(productId: Int, quantity: Int) =
         cartDao.updateQuantity(productId, quantity)

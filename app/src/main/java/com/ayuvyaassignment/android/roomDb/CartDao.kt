@@ -18,9 +18,9 @@ interface CartDao {
     @Query("SELECT * FROM ayuvya_cart_table")
     fun getAllCartItems(): LiveData<List<CartData>>
 
-    @Query("DELETE FROM ayuvya_cart_table")
-    suspend fun clearCart()
-
     @Query("DELETE FROM ayuvya_cart_table WHERE productId = :productId")
     suspend fun deleteByProductId(productId: Int)
+
+    @Query("SELECT COUNT(DISTINCT productId) FROM ayuvya_cart_table")
+    fun getDistinctProductCount(): LiveData<Int>
 }

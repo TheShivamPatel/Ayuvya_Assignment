@@ -19,27 +19,41 @@
 
     <TextView
         android:id="@+id/toolbar_title"
+        style="@style/bodyLarge"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:text="@string/app_name"
-        style="@style/bodyLarge"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/toolbarIconMore"
+        app:layout_constraintEnd_toStartOf="@+id/toolbarIconMore"
         app:layout_constraintStart_toEndOf="@id/toolbar_back_icon"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_goneMarginStart="@dimen/size_16" />
+        app:layout_goneMarginStart="@dimen/size_18"
+        android:fontFamily="@font/open_sans_semibold"/>
 
     <ImageView
         android:id="@+id/toolbarIconMore"
         android:layout_width="@dimen/size_50"
         android:layout_height="0dp"
-        android:layout_marginEnd="@dimen/size_12"
         android:padding="@dimen/size_12"
+        android:scaleType="fitXY"
+        android:layout_marginEnd="@dimen/size_30"
         android:src="@drawable/icon_cart"
         android:visibility="visible"
-        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/cartCount"
+        android:layout_width="@dimen/size_26"
+        android:layout_height="@dimen/size_26"
+        android:background="@drawable/rounded_primary_button_bg"
+        android:gravity="center"
+        android:text="1"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/size_4"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/toolbarIconMore"
+        app:layout_constraintTop_toTopOf="@+id/toolbarIconMore" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

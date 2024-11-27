@@ -1,5 +1,6 @@
 package com.ayuvyaassignment.android.viewModel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -9,6 +10,8 @@ import com.ayuvyaassignment.android.roomDb.CartData
 import kotlinx.coroutines.launch
 
 class MainViewModel(private val repo: MainRepo) : ViewModel() {
+
+    val cartProductCount: LiveData<Int> = repo.getDistinctProductCount()
 
     val allProduct = mutableListOf<Product>()
 
