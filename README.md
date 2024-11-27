@@ -1,4 +1,4 @@
-![WhatsApp Image 2024-11-27 at 15 12 38_6e114d34](https://github.com/user-attachments/assets/57ba07ae-20fe-4996-87f6-87312d8cbdc6)# AYUVYA Assignment
+# AYUVYA Assignment
 ## Task
 1) Product listing screen, with add to cart button
 ![WhatsApp Image 2024-11-27 at 15 12 38_7360d987](https://github.com/user-attachments/assets/f9d23970-2411-4586-98d3-426132117386)
