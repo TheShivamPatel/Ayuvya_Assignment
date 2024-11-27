@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/size_8"
+    app:cardCornerRadius="@dimen/size_16">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/size_8">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/productImg"
+            android:layout_width="@dimen/size_100"
+            android:layout_height="@dimen/size_100"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            app:shapeAppearance="@style/RoundedSquare" />
+
+        <TextView
+            android:id="@+id/productNameTv"
+            style="@style/bodyLarge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/title"
+            android:gravity="start"
+            android:layout_marginHorizontal="@dimen/size_8"
+            app:layout_constraintEnd_toStartOf="@+id/deleteBtn"
+            app:layout_constraintStart_toEndOf="@+id/productImg"
+            app:layout_constraintTop_toTopOf="@+id/productImg" />
+
+        <ImageButton
+            android:id="@+id/deleteBtn"
+            android:layout_width="@dimen/size_18"
+            android:layout_height="@dimen/size_18"
+            android:background="@color/transparent"
+            android:scaleType="fitXY"
+            android:layout_margin="@dimen/size_8"
+            android:src="@drawable/icon_delete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/size_8"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/size_2"
+            app:layout_constraintEnd_toStartOf="@+id/deleteBtn"
+            app:layout_constraintStart_toEndOf="@+id/productImg"
+            app:layout_constraintTop_toBottomOf="@+id/productNameTv">
+
+            <TextView
+                android:id="@+id/mrpTv"
+                style="@style/labelMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="₹1499" />
+
+            <TextView
+                android:id="@+id/priceTv"
+                style="@style/bodyMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/size_8"
+                android:text="₹1499" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/offPercentageTv"
+            style="@style/bodyMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_40_off"
+            android:layout_marginStart="@dimen/size_8"
+            android:textColor="@color/primary_blue"
+            app:layout_constraintStart_toEndOf="@+id/productImg"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginStart="@dimen/size_8"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/productImg"
+            app:layout_constraintTop_toBottomOf="@+id/offPercentageTv">
+
+            <TextView
+                android:id="@+id/minusBtn"
+                android:layout_width="@dimen/size_26"
+                android:layout_height="@dimen/size_26"
+                android:background="@drawable/rounded_primary_stroke_bg"
+                android:gravity="center"
+                android:text="-"
+                android:textSize="@dimen/text_size_20" />
+
+            <TextView
+                android:id="@+id/quantityTv"
+                style="@style/headlineMedium"
+                android:layout_width="@dimen/size_30"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/plusBtn"
+                android:layout_width="@dimen/size_26"
+                android:layout_height="@dimen/size_26"
+                android:background="@drawable/rounded_primary_stroke_bg"
+                android:gravity="center"
+                android:text="+"
+                android:textSize="@dimen/text_size_20" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

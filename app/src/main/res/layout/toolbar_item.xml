@@ -35,7 +35,7 @@
         android:layout_height="0dp"
         android:layout_marginEnd="@dimen/size_12"
         android:padding="@dimen/size_12"
-        android:src="@drawable/ic_launcher_background"
+        android:src="@drawable/icon_cart"
         android:visibility="visible"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"

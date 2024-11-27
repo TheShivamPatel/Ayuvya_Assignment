@@ -1,6 +1,7 @@
 package com.ayuvyaassignment.android.model
 
 data class Product(
+    val id : Int,
     val name: String,
     val price: Double,
     val mrp: Double,
