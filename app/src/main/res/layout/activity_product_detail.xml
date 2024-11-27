@@ -5,6 +5,173 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".productDetails.ProductDetailActivity">
+
+    <include
+        android:id="@+id/toolBar"
+        layout="@layout/toolbar_item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_margin="@dimen/size_16"
+        app:cardCornerRadius="@dimen/size_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolBar">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/productImg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/size_8"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            app:shapeAppearance="@style/RoundedSquare" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/productDescTv"
+        style="@style/bodyLarge"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/size_16"
+        android:text="@string/description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <TextView
+        android:id="@+id/productRatingTv"
+        style="@style/bodyLarge"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/size_16"
+        android:text="4.5⭐"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/productDescTv" />
+
+
+    <TextView
+        android:id="@+id/productReviewsTv"
+        style="@style/bodyLarge"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/size_16"
+        android:text="5673+ reviews"
+        android:textColor="@color/cyan_400"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/productRatingTv" />
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="74dp"
+        android:layout_height="22dp"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/size_16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/productReviewsTv">
+
+        <TextView
+            android:id="@+id/mrpTv"
+            style="@style/labelMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="₹1499" />
+
+        <TextView
+            android:id="@+id/priceTv"
+            style="@style/bodyMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_8"
+            android:text="₹1499" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/addToCartBtn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_80"
+        android:background="@drawable/simple_stroke_bg"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            style="@style/headlineMedium"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/cyan_400"
+            android:gravity="center"
+            android:text="@string/add_to_cart"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/addToCartOperationBtn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_80"
+        android:background="@drawable/simple_stroke_bg"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <TextView
+            android:id="@+id/minusBtn"
+            style="@style/headlineLarge"
+            android:layout_width="@dimen/size_80"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_primary_button_bg"
+            android:gravity="center"
+            android:text="-"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/quantityTv"
+            style="@style/headlineMedium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="@color/black"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/plusBtn"
+            style="@style/headlineLarge"
+            android:layout_width="@dimen/size_80"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_primary_button_bg"
+            android:gravity="center"
+            android:text="+"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

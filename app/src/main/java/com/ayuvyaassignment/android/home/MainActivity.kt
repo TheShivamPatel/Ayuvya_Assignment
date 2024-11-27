@@ -13,6 +13,7 @@ import com.ayuvyaassignment.android.adapter.ProductAdapter
 import com.ayuvyaassignment.android.cart.CartActivity
 import com.ayuvyaassignment.android.databinding.ActivityMainBinding
 import com.ayuvyaassignment.android.model.Product
+import com.ayuvyaassignment.android.productDetails.ProductDetailActivity
 import com.ayuvyaassignment.android.repository.MainRepo
 import com.ayuvyaassignment.android.roomDb.AyuvyaDatabase
 import com.ayuvyaassignment.android.roomDb.CartDao
@@ -78,6 +79,12 @@ class MainActivity : AppCompatActivity() {
             productList = viewModel.allProduct,
             cartDataMap = emptyMap(),
             object : ProductAdapter.OnItemClick {
+                override fun onItemClick(product: Product) {
+                    val intent = Intent(this@MainActivity, ProductDetailActivity::class.java)
+                    intent.putExtra("PRODUCT_KEY", product)
+                    startActivity(intent)
+                }
+
                 override fun addToCart(product: Product) {
                     val cart = CartData(
                         productId = product.id,

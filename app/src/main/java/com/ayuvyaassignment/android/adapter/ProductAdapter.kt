@@ -60,6 +60,10 @@ class ProductAdapter(
                     listener.addToCart(product)
                 }
             }
+
+            binding.root.setOnClickListener {
+                listener.onItemClick(product)
+            }
         }
     }
 
@@ -86,6 +90,7 @@ class ProductAdapter(
     }
 
     interface OnItemClick {
+        fun onItemClick(product: Product)
         fun addToCart(product: Product)
         fun updateQuantity(productId: Int, newQuantity: Int)
     }
